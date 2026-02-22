@@ -22,9 +22,10 @@ const userchema = new mongoose.Schema({
         default : 'user'
     }
 
-})
+},{timestamps : true})
 
 
 const User = mongoose.models.User || mongoose.model('User', userchema);
 
 module.exports = {User};
+

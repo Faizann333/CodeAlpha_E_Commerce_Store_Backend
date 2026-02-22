@@ -13,6 +13,7 @@ const productSchema = new mongoose.Schema({
         type :Number,
         required : true
     },
+   
     category: {
         type :String,
         required : true
@@ -28,9 +29,13 @@ const productSchema = new mongoose.Schema({
     featured : {
         type :Boolean,
         default : false
+    },
+     isAvailable: {
+        type :Boolean,
+        default : true
     }
-
-})
+},{timestamps : true}
+)
 
 const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
 

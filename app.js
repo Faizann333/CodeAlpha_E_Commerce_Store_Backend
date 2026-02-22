@@ -2,12 +2,20 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose')
 const dotenv = require('dotenv');
+const {routes} = require('./Routes/index');
+const cookieParser = require("cookie-parser");
+
 dotenv.config();
 
-
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }));
+app.use(cookieParser());
 app.use(express.json());
+
+routes(app);
 
 const PORT = process.env.PORT || 5000;
 
