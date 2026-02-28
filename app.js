@@ -8,8 +8,10 @@ const cookieParser = require("cookie-parser");
 dotenv.config();
 
 const app = express();
+
+//"http://localhost:5173"   for  local development
 app.use(cors({
-    origin: "http://localhost:5173" || "https://flonestore.vercel.app",
+    origin:  "https://flonestore.vercel.app",
     credentials: true,
   }));
 app.use(cookieParser());
