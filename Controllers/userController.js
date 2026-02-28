@@ -77,13 +77,13 @@ exports.postAddToCartController = async (req, res) => {
 
 exports.getCartController = async (req, res) => {
     try {
-      console.log(req.user.userId);
+        console.log(req.user.userId);
         const cart = await Cart.findOne({ user: req.user.userId }).populate(
             "items.product",
         );
         console.log(cart);
         if (!cart) {
-          console.log("cart not found")
+            console.log("cart not found");
             return res.status(404).json({ message: "Cart not found" });
         }
         res.status(200).json({ success: true, cart });
